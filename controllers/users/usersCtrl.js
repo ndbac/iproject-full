@@ -1,7 +1,10 @@
 const expressAsyncHandler = require("express-async-handler");
+const crypto = require("crypto");
+
 const generateToken = require("../../config/token/generateToken");
 const User = require("../../model/user/User");
 const validateMongoDbId = require("../../utils/validateMongoDbId");
+const sendEmail = require("../../utils/mailing");
 
 //Register
 const userRegisterCtrl = expressAsyncHandler(async (req, res) => {
@@ -143,6 +146,52 @@ const unBlockUserCtrl = expressAsyncHandler(async (req, res) => {
   res.json(user);
 });
 
+// Generate email verification token
+const generateVerificationTokenCtrl = expressAsyncHandler(async (req, res) => {
+  const loginUserId = req.user.id;
+  const user = await User.findById(loginUserId);
+
+  try {
+    // Generate token
+    const verificationToken = await user?.createAccountVerificationToken();
+    await user.save();
+
+    const data = {
+      email: user?.email,
+      subject: "Account verification step in iProject",
+      message: `Click this verification link (within 10 minutes) to verify your account in iProject:
+                http://localhost:5000/verify-account/${verificationToken}`,
+    };
+
+    await sendEmail(data);
+
+    res.json(data);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+// Account verification
+const accountVerificationCtrl = expressAsyncHandler(async (req, res) => {
+  const { token } = req.body;
+  const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+  const userFound = await User.findOne({
+    accountVerificationToken: hashedToken,
+    accountVerificationTokenExpires: { $gt: new Date() },
+  });
+
+  if (!userFound) {
+    throw new Error("The verify link is out of date");
+  }
+
+  userFound.isAccountVerified = true;
+  userFound.accountVerificationToken = undefined;
+  userFound.accountVerificationTokenExpires = undefined;
+  await userFound.save();
+  res.json(userFound);
+});
+
 module.exports = {
   userRegisterCtrl,
   loginUserCtrl,
@@ -153,4 +202,6 @@ module.exports = {
   updateUserPasswordCtrl,
   blockUserCtrl,
   unBlockUserCtrl,
+  generateVerificationTokenCtrl,
+  accountVerificationCtrl,
 };

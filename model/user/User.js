@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
 
 // Create schema
 const userSchema = new mongoose.Schema(
@@ -44,6 +45,11 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    passwordChangeAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    accountVerificationToken: String,
+    accountVerificationTokenExpires: Date,
   },
   {
     toJSON: {
@@ -70,6 +76,42 @@ userSchema.pre("save", async function (next) {
 // UnHashing password
 userSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
+};
+
+// Update time of password changing
+userSchema.pre("save", function (next) {
+  if (!this.isModified("password") || this.isNew) {
+    return next();
+  }
+  this.passwordChangeAt = Date.now() - 1000;
+  next();
+});
+
+// Check valid token when user change password
+userSchema.methods.changePasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangeAt) {
+    const changedTimeStamp = parseInt(
+      this.passwordChangeAt.getTime() / 1000,
+      10
+    );
+    return JWTTimestamp < changedTimeStamp;
+  }
+  // If password not change
+  return false;
+};
+
+// Verify account
+userSchema.methods.createAccountVerificationToken = async function () {
+  // Create a token
+  const verificationToken = crypto.randomBytes(32).toString("hex");
+  // Hashing
+  this.accountVerificationToken = crypto
+    .createHash("sha256")
+    .update(verificationToken)
+    .digest("hex");
+
+  this.accountVerificationTokenExpires = Date.now() + 30 * 60 * 1000; // Expired in 10 minutes
+  return verificationToken;
 };
 
 const User = mongoose.model("User", userSchema);
