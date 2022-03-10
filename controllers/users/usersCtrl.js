@@ -165,7 +165,7 @@ const generateVerificationTokenCtrl = expressAsyncHandler(async (req, res) => {
 
     await sendEmail(data);
 
-    res.json(data);
+    res.json({ Status: "Email sent" });
   } catch (error) {
     throw new Error(error);
   }
@@ -192,6 +192,55 @@ const accountVerificationCtrl = expressAsyncHandler(async (req, res) => {
   res.json(userFound);
 });
 
+// Forgot password token generate
+const forgetPasswordTokenCtrl = expressAsyncHandler(async (req, res) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  try {
+    const token = await user.createPasswordResetToken();
+    console.log(token);
+    await user.save();
+
+    const data = {
+      email: email,
+      subject: "Account verification step in iProject",
+      message: `Click this verification link (within 10 minutes) to verify your account in iProject:
+                http://localhost:5000/reset-password/${token}`,
+    };
+
+    await sendEmail(data);
+
+    res.json({ Status: "Email sent" });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+// Password reset
+const passwordResetCtrl = expressAsyncHandler(async (req, res) => {
+  const { token, password } = req.body;
+  const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+  if (!user) {
+    throw new Error("Reset password link is out of date");
+  }
+
+  user.password = password;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+  await user.save();
+  res.json(user);
+});
+
 module.exports = {
   userRegisterCtrl,
   loginUserCtrl,
@@ -204,4 +253,6 @@ module.exports = {
   unBlockUserCtrl,
   generateVerificationTokenCtrl,
   accountVerificationCtrl,
+  forgetPasswordTokenCtrl,
+  passwordResetCtrl,
 };
