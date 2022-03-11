@@ -2,10 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors");
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 
 const dbConnect = require("./config/db/dbConnect");
 const userRoutes = require("./route/users/usersRoute");
@@ -31,9 +31,9 @@ app.use(helmet());
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
-  message: 'Too many requests from this IP, please try again in an hour!'
+  message: "Too many requests from this IP, please try again in an hour!",
 });
-app.use('/api', limiter);
+app.use("/api", limiter);
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 // Data sanitization against XSS
@@ -54,8 +54,8 @@ app.use("/api/categories", categoryRoute);
 // Mailing route
 app.use("/api/mailing", emailMsgRoute);
 
-app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+app.all("*", (req, res) => {
+  res.json(`Can't find ${req.originalUrl} on this server!`);
 });
 
 // Server
