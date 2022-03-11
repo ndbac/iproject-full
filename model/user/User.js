@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 
@@ -21,13 +22,16 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: [true, "Email is required"],
+      unique: true,
+      validate: [validator.isEmail, "Please provide a valid email"],
     },
-    profileDescription: {
+    bio: {
       type: String,
     },
     password: {
       type: String,
       required: [true, "Password is required"],
+      minlength: 8,
     },
     postQuantity: {
       type: Number,
@@ -61,6 +65,13 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+// Virtual method to populate created post
+userSchema.virtual("posts", {
+  ref: "Post",
+  foreignField: "user",
+  localField: "_id",
+});
 
 // Hashing password
 userSchema.pre("save", async function (next) {

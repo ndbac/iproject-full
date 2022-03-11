@@ -7,6 +7,7 @@ const User = require("../../model/user/User");
 const validateMongoDbId = require("../../utils/validateMongoDbId");
 const sendEmail = require("../../utils/mailing");
 const cloudinaryUploadImg = require("../../utils/cloudinary");
+const APIFeatures = require("../../utils/apiFeatures");
 
 //Register
 const userRegisterCtrl = expressAsyncHandler(async (req, res) => {
@@ -56,9 +57,9 @@ const loginUserCtrl = expressAsyncHandler(async (req, res) => {
 //Fetch all users
 const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
   try {
-    const users = await User.find({});
+    const users = await User.find({}).populate("posts");
     res.json({
-      Quantity: users.length,
+      quantity: users.length,
       users,
     });
   } catch (error) {
@@ -97,7 +98,7 @@ const userProfileCtrl = expressAsyncHandler(async (req, res) => {
   validateMongoDbId(id);
   try {
     const user = await User.findById(id).select(
-      "-password -email -_id -isAccountVerified -updatedAt -id -__v"
+      "-password -email -_id -isAccountVerified -updatedAt -id -__v -passwordChangeAt"
     );
     res.json(user);
   } catch (error) {
