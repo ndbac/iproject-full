@@ -12,15 +12,15 @@ const createPostCtrl = expressAsyncHandler(async (req, res) => {
   const { _id } = req.user;
 
   // Get the path to the image
-  //   const localPath = `public/images/posts/${req.file.filename}`;
+  // const localPath = `public/images/posts/${req.file.filename}`;
   // Upload the image to the cloudinary
-  //   const imgUploaded = await cloudinaryUploadImg(localPath);
+  // const imgUploaded = await cloudinaryUploadImg(localPath);
 
   try {
     const post = await Post.create({
       ...req.body,
       user: _id,
-      //   image: imgUploaded?.url,
+      // image: imgUploaded?.url,
     });
 
     // Update the post quantity
@@ -57,20 +57,33 @@ const fetchPostsCtrl = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// Searching posts
+const searchingPostsCtrl = expressAsyncHandler(async (req, res) => {
+  try {
+    const { title } = req.query;
+    const results = await Post.find({
+      title: { $regex: new RegExp(title) },
+    }).limit(10);
+    res.json(results);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 // Fetch a post
 const fetchPostCtrl = expressAsyncHandler(async (req, res) => {
-  const { slug } = req.params;
+  const { id } = req.params;
+  validateMongoDbId(id);
   try {
-    const post = await Post.findOne({ slug }).populate("comments");
-    if (post === null) {
-      res.json({ Status: "No post found" });
+    const post = await Post.findById(id).populate({
+      path: "comments",
+      select: "rating comment -post",
+    });
+    if (!post) {
+      res.json("No post found");
     }
     // Update number of views
-    await Post.findByIdAndUpdate(
-      post.id,
-      { $inc: { numViews: 1 } },
-      { new: true }
-    );
+    await Post.findByIdAndUpdate(id, { $inc: { numViews: 1 } }, { new: true });
     res.json(post);
   } catch (error) {
     res.json(error);
@@ -79,16 +92,16 @@ const fetchPostCtrl = expressAsyncHandler(async (req, res) => {
 
 // Update a post
 const updatePostCtrl = expressAsyncHandler(async (req, res) => {
-  const { slug } = req.params;
-
+  const { id } = req.params;
+  validateMongoDbId(id);
   try {
-    const currentPost = await Post.findOne({ slug });
+    const currentPost = await Post.findById(id);
     if (!currentPost) {
       res.json("No post found");
     }
     if (req.user.id === currentPost.user.toString() || req.user.isAdmin) {
-      const post = await Post.findOneAndUpdate(
-        { slug },
+      const post = await Post.findByIdAndUpdate(
+        id,
         { ...req.body, user: req.user?._id },
         { new: true }
       );
@@ -103,15 +116,15 @@ const updatePostCtrl = expressAsyncHandler(async (req, res) => {
 
 // Delete a post
 const deletePostCtrl = expressAsyncHandler(async (req, res) => {
-  const { slug } = req.params;
-
+  const { id } = req.params;
+  validateMongoDbId(id);
   try {
-    const currentPost = await Post.findOne({ slug });
+    const currentPost = await Post.findById(id);
     if (!currentPost) {
       res.json("No post found");
     }
     if (req.user.id === currentPost.user.toString() || req.user.isAdmin) {
-      const post = await Post.findOneAndDelete({ slug });
+      const post = await Post.findByIdAndDelete(id);
       res.json(post);
     } else {
       res.json("You do not have permission to access this api");
@@ -124,6 +137,7 @@ const deletePostCtrl = expressAsyncHandler(async (req, res) => {
 module.exports = {
   createPostCtrl,
   fetchPostsCtrl,
+  searchingPostsCtrl,
   fetchPostCtrl,
   updatePostCtrl,
   deletePostCtrl,

@@ -57,7 +57,10 @@ const loginUserCtrl = expressAsyncHandler(async (req, res) => {
 //Fetch all users
 const fetchUsersCtrl = expressAsyncHandler(async (req, res) => {
   try {
-    const users = await User.find({}).populate("posts");
+    const users = await User.find({}).populate({
+      path: "posts",
+      select: "_id -user",
+    });
     res.json({
       quantity: users.length,
       users,
@@ -160,7 +163,7 @@ const generateVerificationTokenCtrl = expressAsyncHandler(async (req, res) => {
     await user.save();
 
     const data = {
-      email: user?.email,
+      to: user?.email,
       subject: "Account verification step in iProject",
       message: `Click this verification link (within 10 minutes) to verify your account in iProject:
                 http://localhost:5000/verify-account/${verificationToken}`,
@@ -210,7 +213,7 @@ const forgetPasswordTokenCtrl = expressAsyncHandler(async (req, res) => {
     await user.save();
 
     const data = {
-      email: email,
+      to: email,
       subject: "Account verification step in iProject",
       message: `Click this verification link (within 10 minutes) to verify your account in iProject:
                 http://localhost:5000/reset-password/${token}`,

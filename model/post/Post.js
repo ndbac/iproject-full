@@ -24,6 +24,17 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: [true, "Post description is required"],
     },
+    ratingsAverage: {
+      type: Number,
+      default: 5,
+      min: [1, "Rating must be above 1.0"],
+      max: [5, "Rating must be below 5.0"],
+      set: (val) => Math.round(val * 10) / 10,
+    },
+    ratingsQuantity: {
+      type: Number,
+      default: 0,
+    },
     image: {
       type: String,
       default:
@@ -56,6 +67,15 @@ postSchema.virtual("comments", {
   ref: "Comment",
   foreignField: "post",
   localField: "_id",
+});
+
+// Populate user when fetching
+postSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "user",
+    select: "lastName firstName profilePhoto",
+  });
+  next();
 });
 
 // Creating slug for post

@@ -5,6 +5,7 @@ const {
   fetchPostCtrl,
   updatePostCtrl,
   deletePostCtrl,
+  searchingPostsCtrl,
 } = require("../../controllers/posts/postCtrl");
 const {
   authMiddleware,
@@ -20,16 +21,17 @@ const postRoute = express.Router();
 postRoute.post(
   "/",
   authMiddleware,
-  //   photoUpload.single("image"),
-  //   postImgResize,
+  // photoUpload.single("image"),
+  // postImgResize,
   createPostCtrl
 );
 
 postRoute.get("/", fetchPostsCtrl);
-postRoute.get("/:slug", fetchPostCtrl);
+postRoute.get("/search", searchingPostsCtrl);
+postRoute.get("/:id", fetchPostCtrl);
 
-postRoute.put("/:slug", authMiddleware, updatePostCtrl);
+postRoute.put("/:id", authMiddleware, updatePostCtrl);
 
-postRoute.delete("/:slug", authMiddleware, deletePostCtrl);
+postRoute.delete("/:id", authMiddleware, deletePostCtrl);
 
 module.exports = postRoute;

@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 
 const sendEmail = async (options) => {
+  console.log(options);
   // Transporter
   const transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -12,8 +13,8 @@ const sendEmail = async (options) => {
 
   // Define the email options
   const mailOptions = {
-    from: "iProject <ndinhbac.0@gmail.com>",
-    to: options.email,
+    from: options.from || "iProject <ndinhbac.0@gmail.com>",
+    to: options.to,
     subject: options.subject,
     text: options.message,
     //   html:
