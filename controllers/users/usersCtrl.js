@@ -101,7 +101,7 @@ const userProfileCtrl = expressAsyncHandler(async (req, res) => {
   validateMongoDbId(id);
   try {
     const user = await User.findById(id).select(
-      "-password -email -_id -isAccountVerified -updatedAt -id -__v -passwordChangeAt"
+      "-password -email -_id -isAccountVerified -updatedAt -id -__v -passwordChangeAt -passwordResetToken -passwordResetExpires"
     );
     res.json(user);
   } catch (error) {

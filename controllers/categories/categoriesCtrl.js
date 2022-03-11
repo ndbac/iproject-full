@@ -15,7 +15,7 @@ const createCategoryCtrl = expressAsyncHandler(async (req, res) => {
     });
     res.json(category);
   } catch (error) {
-    throw new Error(error);
+    res.json(error);
   }
 });
 

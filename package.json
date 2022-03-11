@@ -21,7 +21,10 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.3.0",
     "fs": "^0.0.1-security",
+    "helmet": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.5",
     "multer": "^1.4.4",
@@ -29,6 +32,7 @@
     "path": "^0.12.7",
     "sharp": "^0.30.2",
     "slugify": "^1.6.5",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
   }
 }
