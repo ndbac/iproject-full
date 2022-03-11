@@ -1,10 +1,12 @@
 const expressAsyncHandler = require("express-async-handler");
 const crypto = require("crypto");
+const fs = require("fs");
 
 const generateToken = require("../../config/token/generateToken");
 const User = require("../../model/user/User");
 const validateMongoDbId = require("../../utils/validateMongoDbId");
 const sendEmail = require("../../utils/mailing");
+const cloudinaryUploadImg = require("../../utils/cloudinary");
 
 //Register
 const userRegisterCtrl = expressAsyncHandler(async (req, res) => {
@@ -241,6 +243,24 @@ const passwordResetCtrl = expressAsyncHandler(async (req, res) => {
   res.json(user);
 });
 
+// Profile photo upload
+const profilePhotoUploadCtrl = expressAsyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  // Get the path to the image
+  const localPath = `public/images/profile/${req.file.filename}`;
+  // Upload to cloudinary
+  const imgUploaded = await cloudinaryUploadImg(localPath);
+
+  const foundUser = await User.findByIdAndUpdate(
+    _id,
+    { profilePhoto: imgUploaded?.url },
+    { new: true }
+  );
+  // Remove uploaded photo from storage
+  fs.unlinkSync(localPath);
+  res.json(imgUploaded);
+});
+
 module.exports = {
   userRegisterCtrl,
   loginUserCtrl,
@@ -255,4 +275,5 @@ module.exports = {
   accountVerificationCtrl,
   forgetPasswordTokenCtrl,
   passwordResetCtrl,
+  profilePhotoUploadCtrl,
 };
