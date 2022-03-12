@@ -6,7 +6,6 @@ const APIFeatures = require("../../utils/apiFeatures");
 
 // Create a comment
 const createCommentCtrl = expressAsyncHandler(async (req, res) => {
-  console.log(req.user);
   try {
     const comment = await Comment.create({
       rating: req?.body?.rating,
@@ -56,7 +55,7 @@ const updateCommentCtrl = expressAsyncHandler(async (req, res) => {
     if (!currentComment) {
       res.json("No comment found");
     }
-    if (req.user.id === currentComment.user.toString() || req.user.isAdmin) {
+    if (req.user.id === currentComment.user.id.toString() || req.user.isAdmin) {
       const update = await Comment.findByIdAndUpdate(
         id,
         {
@@ -82,7 +81,7 @@ const deleteCommentCtrl = expressAsyncHandler(async (req, res) => {
     if (!currentComment) {
       res.json("No comment found");
     }
-    if (req.user.id === currentComment.user.toString() || req.user.isAdmin) {
+    if (req.user.id === currentComment.user.id.toString() || req.user.isAdmin) {
       const comment = await Comment.findByIdAndDelete(id);
       res.json(comment);
     } else {

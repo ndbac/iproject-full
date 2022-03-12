@@ -3,7 +3,6 @@ const sendEmail = require("../../utils/mailing");
 
 const sendEmailMsgCtrl = expressAsyncHandler(async (req, res) => {
   const { from, to, subject, message } = req.body;
-  console.log(req.body);
   try {
     const data = {
       from,

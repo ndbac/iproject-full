@@ -55,7 +55,6 @@ commentSchema.statics.calcAverageRating = async function (postId) {
       },
     },
   ]);
-  console.log(stats);
 
   if (stats.length > 0) {
     await Post.findByIdAndUpdate(postId, {

@@ -209,7 +209,6 @@ const forgetPasswordTokenCtrl = expressAsyncHandler(async (req, res) => {
 
   try {
     const token = await user.createPasswordResetToken();
-    console.log(token);
     await user.save();
 
     const data = {

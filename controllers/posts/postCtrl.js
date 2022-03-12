@@ -99,7 +99,7 @@ const updatePostCtrl = expressAsyncHandler(async (req, res) => {
     if (!currentPost) {
       res.json("No post found");
     }
-    if (req.user.id === currentPost.user.toString() || req.user.isAdmin) {
+    if (req.user.id === currentPost.user.id.toString() || req.user.isAdmin) {
       const post = await Post.findByIdAndUpdate(
         id,
         { ...req.body, user: req.user?._id },
@@ -123,7 +123,7 @@ const deletePostCtrl = expressAsyncHandler(async (req, res) => {
     if (!currentPost) {
       res.json("No post found");
     }
-    if (req.user.id === currentPost.user.toString() || req.user.isAdmin) {
+    if (req.user.id === currentPost.user.id.toString() || req.user.isAdmin) {
       const post = await Post.findByIdAndDelete(id);
       res.json(post);
     } else {
