@@ -4,7 +4,7 @@ import axios from "axios";
 // Slices
 const usersSlices = createSlice({
   name: "users",
-  initialState: {},
+  initialState: { userAuth: "login" },
   extraReducers: (builder) => {},
 });
 

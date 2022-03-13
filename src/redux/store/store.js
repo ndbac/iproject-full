@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import usersSlices from "../slices/users/usersSlices";
+
+import sendMailReducer from "../slices/email/emailSlices";
 
 const store = configureStore({
   reducer: {
-    users: usersSlices,
+    sendMailReducer,
   },
 });
 
