@@ -110,7 +110,7 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    Welcome to Kickstarter!
+                    Welcome to KickIO!
                   </h4>
                 </div>
               </button>
