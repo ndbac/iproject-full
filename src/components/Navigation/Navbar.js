@@ -168,7 +168,7 @@ function Navbar() {
                       About
                     </a>
                   </li>
-                  <li className="relative group">
+                  {/* <li className="relative group">
                     <a
                       href="#pricing"
                       className="
@@ -188,7 +188,7 @@ function Navbar() {
                     >
                       Pricing
                     </a>
-                  </li>
+                  </li> */}
                   <li className="relative group">
                     <a
                       href="#team"
