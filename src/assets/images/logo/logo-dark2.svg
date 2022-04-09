@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #3056d3;
+        fill: #fff;
       }
 
       .cls-2 {
@@ -23,22 +23,22 @@
 
       .cls-5 {
         font-size: 24px;
-        fill: #080d33;
+        fill: #090e34;
         text-anchor: middle;
         font-family: Montserrat;
         font-weight: 700;
       }
     </style>
     <filter id="filter" filterUnits="userSpaceOnUse">
-      <feFlood result="flood" flood-color="#fff"/>
+      <feFlood result="flood" flood-color="#3056d3"/>
       <feComposite result="composite" operator="in" in2="SourceGraphic"/>
       <feBlend result="blend" in2="SourceGraphic"/>
     </filter>
   </defs>
-  <circle class="cls-1" cx="1262.531" cy="1499.5" r="1231.999"/>
+  <circle class="cls-1" cx="1262.531" cy="1499.531" r="1231.999"/>
   <g class="cls-2">
-    <path class="cls-3" d="M1262.52,1542.13l-721.13,719.5V737.417h311.4V1420.85L641.366,1633.91v80.31l396.624-394.98Z"/>
-    <path class="cls-4" d="M913.428,737.417V1112.73L2067.24,2261.63V1815.84L989.229,737.417h-75.8Z"/>
+    <path class="cls-3" d="M1262.52,1542.13l-721.129,719.5V737.417h311.4V1420.85L641.366,1633.91v80.31l396.624-394.98Z"/>
+    <path class="cls-4" d="M913.429,737.417V1112.73L2067.24,2261.63V1815.84L989.23,737.417h-75.8Z"/>
     <path class="cls-3" d="M1614.05,737.417h453.19L1567.36,1235.65,1344.47,1014.4Z"/>
   </g>
   <text id="KickIO" class="cls-5" transform="translate(5901.138 2262.573) scale(74.763)"><tspan x="0">KickIO</tspan></text>
