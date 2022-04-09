@@ -42,7 +42,7 @@ function FaqSectionStart() {
                 mb-4
               "
               >
-                Any Questions? Answered
+                Terms of Use
               </h2>
               <p
                 class="
@@ -53,8 +53,9 @@ function FaqSectionStart() {
                 text-body-color
               "
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                KickIO campaigns make ideas into reality. It's where creators
+                share new visions for creative work with the communities that
+                will come together to fund them.
               </p>
             </div>
           </div>
@@ -109,16 +110,21 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    How to use TailGrids?
+                    Welcome to Kickstarter!
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  By using this website (the “Site”) and services (together with
+                  the Site, the “Services”) offered by KickIO, and its and their
+                  parents, subsidiaries, affiliates, agents, representatives,
+                  consultants, employees, officers, and directors—collectively,
+                  “we,” or “us”), you're agreeing to these legally binding rules
+                  (the “Terms”). You're also agreeing to our Privacy Policy and
+                  Cookie Policy, and agreeing to follow any other rules on the
+                  Site, like our Community Guidelines and rules for starting
+                  projects.
                 </p>
               </div>
             </div>
@@ -169,16 +175,15 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    How to download icons from LineIcons?
+                    About Creating an Account
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  You must be 18 or over to sign up for a Kickstarter account.
+                  You're responsible for your account and all the activity on
+                  it.
                 </p>
               </div>
             </div>
@@ -229,16 +234,15 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    Is GrayGrids part of UIdeck?
+                    Things You Definitely Shouldn't Do
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  You should't do—lie, break laws, abuse people, steal data,
+                  hack other people's computers, and so on. Please behave
+                  yourself. Don't do this stuff.
                 </p>
               </div>
             </div>
@@ -291,16 +295,17 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    Can I use this template for commercial project?
+                    How Projects Work
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  KickIO provides a funding platform for creative projects. When
+                  a creator posts a project on KickIO, they're inviting other
+                  people to form a contract with them. Anyone who backs a
+                  project is accepting the creator's offer, and forming that
+                  contract.
                 </p>
               </div>
             </div>
@@ -351,16 +356,14 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    Do you have plan to releasing Play Pro?
+                    Our Fees
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  We charge our 2-5% fee on successfully funded projects, in
+                  addition to any fees from our payment partners.
                 </p>
               </div>
             </div>
@@ -411,16 +414,16 @@ function FaqSectionStart() {
                 </div>
                 <div class="w-full">
                   <h4 class="text-base sm:text-lg font-semibold text-black">
-                    Where and how to host this template?
+                    Other Websites
                   </h4>
                 </div>
               </button>
               <div class="faq-content pl-[62px] hidden">
                 <p class="text-base text-body-color leading-relaxed py-3">
-                  It takes 2-3 weeks to get your first blog post ready. That
-                  includes the in-depth research & creation of your monthly
-                  content marketing strategy that we do before writing your
-                  first blog post, Ipsum available .
+                  KickIO may contain links to other websites. (For instance,
+                  project pages, user profiles, and comments may link to other
+                  sites.) When you access third-party websites, you do so at
+                  your own risk. We don't control or endorse those sites.
                 </p>
               </div>
             </div>

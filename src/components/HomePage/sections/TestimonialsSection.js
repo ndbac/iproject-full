@@ -329,7 +329,7 @@ function TestimonialsSection() {
         <div class="flex flex-wrap">
           <div class="w-full mx-4">
             <div class="wow fadeInUp" data-wow-delay=".2s">
-              <div class="ud-title mb-8">
+              {/* <div class="ud-title mb-8">
                 <h6
                   class="
                     text-xs
@@ -343,8 +343,8 @@ function TestimonialsSection() {
                   Some Of Our Clients
                   <span class="w-8 h-[1px] inline-block bg-[#afb2b5] ml-4"></span>
                 </h6>
-              </div>
-              <div class="ud-brands-logo flex items-center flex-wrap">
+              </div> */}
+              {/* <div class="ud-brands-logo flex items-center flex-wrap">
                 <div class="ud-single-logo mr-10 mb-5 max-w-[140px]">
                   <a
                     href="https://tailgrids.com"
@@ -410,7 +410,7 @@ function TestimonialsSection() {
                     />
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

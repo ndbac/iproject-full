@@ -60,20 +60,21 @@ function AboutSectionStart() {
                       mb-6
                     "
                   >
-                    Brilliant Toolkit to Build Nextgen Website Faster.
+                    Our Vision and mission
                   </h2>
                   <p class="text-base text-body-color mb-9 leading-relaxed">
-                    The main ‘thrust' is to focus on educating attendees on how
-                    to best protect highly vulnerable business applications with
-                    interactive panel discussions and roundtables led by subject
-                    matter experts.
+                    KickIO is an essential finanacial application for investors.
                   </p>
                   <p class="text-base text-body-color mb-9 leading-relaxed">
-                    The main ‘thrust' is to focus on educating attendees on how
-                    to best protect highly vulnerable business applications with
-                    interactive panel.
+                    Upgrading and improving the thinking of individual investors
+                    about the financial market in global towards professionalism
+                    and technology.
                   </p>
-                  <a
+                  <p class="text-base text-body-color mb-9 leading-relaxed">
+                    Investors can conveniently access financial
+                    products on digital platforms.
+                  </p>
+                  {/* <a
                     href="javascript:void(0)"
                     class="
                       inline-flex
@@ -93,7 +94,7 @@ function AboutSectionStart() {
                     "
                   >
                     Learn More
-                  </a>
+                  </a> */}
                 </div>
                 <div class="text-center">
                   <div class="relative inline-block z-10">

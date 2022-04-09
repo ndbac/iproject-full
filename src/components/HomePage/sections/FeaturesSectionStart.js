@@ -21,7 +21,7 @@ function FeaturesSectionStart() {
                 mb-4
               "
               >
-                Main Features Of Play
+                Main Features
               </h2>
               <p
                 class="
@@ -32,8 +32,8 @@ function FeaturesSectionStart() {
                 text-body-color
               "
               >
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+                Faster, easier and safer with modern way to control your savings
+                by investing.
               </p>
             </div>
           </div>
@@ -87,18 +87,17 @@ function FeaturesSectionStart() {
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Free and Open-Source
-              </h4>
+              <h4 class="font-bold text-xl text-dark mb-3">Smart investing</h4>
               <p class="text-body-color mb-8 lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                Investors can use our smart assistant to make decisions about
+                their business.
               </p>
-              <a
+              {/* <a
                 href="javascript:void(0)"
                 class="font-medium text-base text-body-color hover:text-primary"
               >
                 Learn More
-              </a>
+              </a> */}
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -152,18 +151,17 @@ function FeaturesSectionStart() {
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                Multipurpose Template
-              </h4>
+              <h4 class="font-bold text-xl text-dark mb-3">Financed</h4>
               <p class="text-body-color mb-8 lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                We do not affect your cash flows, all transactions are financed
+                by us.
               </p>
-              <a
+              {/* <a
                 href="javascript:void(0)"
                 class="font-medium text-base text-body-color hover:text-primary"
               >
                 Learn More
-              </a>
+              </a> */}
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -226,18 +224,17 @@ function FeaturesSectionStart() {
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                High-quality Design
-              </h4>
+              <h4 class="font-bold text-xl text-dark mb-3">Integrate</h4>
               <p class="text-body-color mb-8 lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                We work with insurance company and to eliminate all
+                administrative burden.
               </p>
-              <a
+              {/* <a
                 href="javascript:void(0)"
                 class="font-medium text-base text-body-color hover:text-primary"
               >
                 Learn More
-              </a>
+              </a> */}
             </div>
           </div>
           <div class="w-full md:w-1/2 lg:w-1/4 px-4">
@@ -291,18 +288,16 @@ function FeaturesSectionStart() {
                   />
                 </svg>
               </div>
-              <h4 class="font-bold text-xl text-dark mb-3">
-                All Essential Elements
-              </h4>
+              <h4 class="font-bold text-xl text-dark mb-3">Safety</h4>
               <p class="text-body-color mb-8 lg:mb-11">
-                Lorem Ipsum is simply dummy text of the printing and industry.
+                We meet the highest standards. Your safety is our priority.
               </p>
-              <a
+              {/* <a
                 href="javascript:void(0)"
                 class="font-medium text-base text-body-color hover:text-primary"
               >
                 Learn More
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

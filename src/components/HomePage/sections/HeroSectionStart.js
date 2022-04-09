@@ -2,7 +2,7 @@
 import React from "react";
 
 import Brand from "../../../assets/images/hero/brand.svg";
-import HeroImage from "../../../assets/images/hero/hero-image.jpg";
+import HeroImage from "../../../assets/images/hero/hero-image.png";
 
 function HeroSectionStart() {
   return (
@@ -37,7 +37,7 @@ function HeroSectionStart() {
                   mb-8
                 "
               >
-                Open-Source Web Template for SaaS, Startup, Apps, and More
+                KickIO - CrowdFunding Platform
               </h1>
               <p
                 class="
@@ -50,13 +50,12 @@ function HeroSectionStart() {
                   max-w-[600px]
                 "
               >
-                Multidisciplinary Web Template Built with Your Favourite
-                Technology - HTML Bootstrap, Tailwind and React NextJS.
+                Creative work shows us what's possible. Help fund it here.
               </p>
               <ul class="flex flex-wrap items-center justify-center mb-10">
                 <li>
                   <a
-                    href="https://links.tailgrids.com/play-download"
+                    href=""
                     class="
                       py-4
                       px-6
@@ -74,12 +73,12 @@ function HeroSectionStart() {
                       ease-in-out
                     "
                   >
-                    Download Now
+                    Google play
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/tailgrids/play-tailwind"
+                    href=""
                     target="_blank"
                     class="
                       text-base
@@ -96,7 +95,7 @@ function HeroSectionStart() {
                       ease-in-out
                     "
                   >
-                    Star on Github
+                    App store
                     <span class="pl-2">
                       <svg
                         width="20"
@@ -110,7 +109,7 @@ function HeroSectionStart() {
                   </a>
                 </li>
               </ul>
-              <div class="text-center wow fadeInUp" data-wow-delay=".3s">
+              {/* <div class="text-center wow fadeInUp" data-wow-delay=".3s">
                 <img
                   src={Brand}
                   alt="image"
@@ -125,7 +124,7 @@ function HeroSectionStart() {
                     ease-in-out
                   "
                 />
-              </div>
+              </div> */}
             </div>
           </div>
 

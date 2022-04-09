@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 
-import LogoWhite from "../../assets/images/logo/logo-white.svg";
+import LogoWhite from "../../assets/images/logo/logo-whit.svg";
 import Tailgrids from "../../assets/images/footer/brands/tailgrids.svg";
 import Ayroui from "../../assets/images/footer/brands/ayroui.svg";
 import EcommerceHTML from "../../assets/images/footer/brands/ecommerce-html.svg";
@@ -28,8 +28,7 @@ function Footer() {
                 <img src={LogoWhite} alt="logo" class="max-w-full" />
               </a>
               <p class="text-base text-[#f3f4fe] mb-7">
-                We create digital experiences for brands and companies by using
-                technology.
+                Creative work shows us what's possible. Help fund it here.
               </p>
               <div class="flex items-center -mx-3">
                 <a
@@ -232,7 +231,7 @@ function Footer() {
                       mb-2
                     "
                   >
-                    LineIcons
+                    Smart Assistant
                   </a>
                 </li>
                 <li>
@@ -246,7 +245,7 @@ function Footer() {
                       mb-2
                     "
                   >
-                    Ecommerce HTML
+                    CrowdFunding
                   </a>
                 </li>
                 <li>
@@ -260,7 +259,7 @@ function Footer() {
                       mb-2
                     "
                   >
-                    Ayro UI
+                    KickIO application
                   </a>
                 </li>
                 <li>
@@ -274,14 +273,14 @@ function Footer() {
                       mb-2
                     "
                   >
-                    PlainAdmin
+                    KickIO website
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div class="w-full md:w-2/3 lg:w-6/12 xl:w-3/12 px-4">
-            <div class="w-full mb-10">
+            {/* <div class="w-full mb-10">
               <h4 class="text-white text-lg font-semibold mb-9">Partners</h4>
               <ul class="flex flex-wrap items-center">
                 <li>
@@ -387,7 +386,7 @@ function Footer() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -432,12 +431,12 @@ function Footer() {
                 <p class="text-base text-[#f3f4fe]">
                   Designed and Developed by&nbsp;
                   <a
-                    href="https://tailgrids.com"
+                    href=""
                     rel="nofollow noopner"
                     target="_blank"
                     class="text-primary hover:underline"
                   >
-                    TailGrids and UIdeck
+                    KickIO
                   </a>
                 </p>
               </div>

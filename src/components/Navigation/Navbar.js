@@ -1,8 +1,8 @@
 /* eslint-disable */
 import { React, useEffect } from "react";
 
-import LogoWhite from "../../assets/images/logo/logo-white.svg";
-import Logo from "../../assets/images/logo/logo.svg";
+import LogoWhite from "../../assets/images/logo/logo-whit.svg";
+import Logo from "../../assets/images/logo/logo-dark.svg";
 
 function Navbar() {
   window.onscroll = function () {
@@ -231,7 +231,7 @@ function Navbar() {
                       Contact
                     </a>
                   </li>
-                  <li className="relative group submenu-item">
+                  {/* <li className="relative group submenu-item">
                     <a
                       href="javascript:void(0)"
                       className="
@@ -389,11 +389,11 @@ function Navbar() {
                         404 Page
                       </a>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </div>
-            <div className="sm:flex justify-end hidden pr-16 lg:pr-0">
+            {/* <div className="sm:flex justify-end hidden pr-16 lg:pr-0">
               <a
                 href="signin.html"
                 className="
@@ -426,7 +426,7 @@ function Navbar() {
               >
                 Sign Up
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

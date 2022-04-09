@@ -76,7 +76,7 @@ function ContactSection() {
                   <div>
                     <h5 className="text-lg font-semibold mb-6">Our Location</h5>
                     <p className="text-base text-body-color">
-                      401 Broadway, 24th Floor, Orchard Cloud View, London
+                      B1, No.1 Dai Co Viet st, Hai Ba Trung dist, Hanoi, Vietnam
                     </p>
                   </div>
                 </div>
@@ -95,11 +95,9 @@ function ContactSection() {
                     <h5 className="text-lg font-semibold mb-6">
                       How Can We Help?
                     </h5>
+                    <p className="text-base text-body-color">info@kickio.net</p>
                     <p className="text-base text-body-color">
-                      info@yourdomain.com
-                    </p>
-                    <p className="text-base text-body-color">
-                      contact@yourdomain.com
+                      contact@kickio.net
                     </p>
                   </div>
                 </div>
@@ -196,7 +194,7 @@ function ContactSection() {
                     onBlur={formik.handleBlur("message")}
                     name="message"
                     rows="1"
-                    placeholder="type your message here"
+                    placeholder="Type your message here"
                     className="
                       w-full
                       border-0 border-b border-[#f1f1f1]
