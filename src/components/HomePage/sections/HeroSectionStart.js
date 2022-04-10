@@ -55,7 +55,8 @@ function HeroSectionStart() {
               <ul class="flex flex-wrap items-center justify-center mb-10">
                 <li>
                   <a
-                    href=""
+                    href="https://drive.google.com/file/d/1fH1NlRP1pEp59qt05WhuW7ZHNJ2JS5yP/view?usp=sharing"
+                    target="_blank"
                     class="
                       py-4
                       px-6
@@ -78,7 +79,7 @@ function HeroSectionStart() {
                 </li>
                 <li>
                   <a
-                    href=""
+                    href="https://drive.google.com/file/d/1fH1NlRP1pEp59qt05WhuW7ZHNJ2JS5yP/view?usp=sharing"
                     target="_blank"
                     class="
                       text-base

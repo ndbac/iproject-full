@@ -80,7 +80,7 @@ function Navbar() {
       <div className="container">
         <div className="flex -mx-4 items-center justify-between relative">
           <div className="px-4 w-60 max-w-full">
-            <a href="index.html" className="navbar-logo w-full block py-5">
+            <a className="navbar-logo w-full block py-5">
               <img src={LogoWhite} alt="logo" className="w-full header-logo" />
             </a>
           </div>

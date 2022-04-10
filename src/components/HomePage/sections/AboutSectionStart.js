@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 
-import AboutImage from "../../../assets/images/about/about-image.svg";
+import AboutImage from "../../../assets/images/about/about-image.png";
 
 function AboutSectionStart() {
   return (
